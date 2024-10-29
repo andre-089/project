@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+</head>
+<body background="img/OIP (3).jpg">
+    <div class="box">
+        <span class="borderline"></span>
+        <form id="loginForm">
+            <h2>Login Sek</h2>
+            <div class="alert alert-danger d-none" id="alert">
+
+                Username atau Password anda salah
+            </div>
+            <div class="inputbox">
+                <input type="text" required="required" id="username">
+                <span>Username</span>
+                <i></i>
+            </div>
+            <div class="inputbox">
+                <input type="password" required="required" id="password">
+                <span>Password</span>
+                <i></i>
+            </div>
+            <div class="links">
+                <a href="#">Jangan Lupa Datang ke Stand SMKS Al-Mahrusiyah</a>
+                <a href="https://www.instagram.com/elmahrusy.media/#">Silakan Follow Instagram SMKS Al-Mahrusiyah</a>
+            </div>
+            <button type="submit" color >Login</button>
+        </form>
+    </div>
+
+    <script src="./js/bootstrap.min.js"></script>
+    <script>
+        document
+         .getElementById("loginForm")
+         .addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            //data logon static
+            const staticUser = {
+                username : "admin",
+                password : "admin123",
+            }
+
+            // ambil nilai input
+            const usernameinput = document.getElementById("username").value;
+            const passwordinput = document.getElementById("password").value;
+
+            // cek username dan password
+            if (
+                usernameinput === staticUser.username &&
+                passwordinput === staticUser.password
+            ) {
+                alert("Login berhasil!");
+                window.location.href = "index.html";
+            } else {
+                document.getElementById("alert").classList.remove("d-none");
+            }
+         });
+    </script>
+</body>
+</html>
